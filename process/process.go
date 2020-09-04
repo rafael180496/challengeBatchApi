@@ -1,7 +1,6 @@
 package process
 
 import (
-	"fmt"
 	"os"
 	"time"
 
@@ -89,7 +88,7 @@ func procesarCsv(filePath string) error {
 		err = erraux
 	}
 	for _, client := range clients {
-		fmt.Println(*client)
+		data.AddRow(client.ConvertMap())
 	}
 
 	if err != nil {

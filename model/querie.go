@@ -41,34 +41,34 @@ var (
 func SetQuerie() {
 	s.DbCx.SetBackupScript(`
 	create table clients
-(
-    clientId   int     not null
-        constraint clients_pk
-            primary key,
-    platformId int     not null,
-    name       text    not null,
-    segment1   boolean not null,
-    segment2   boolean not null,
-    segment3   boolean not null,
-    segment4   boolean not null
-);
-
-create table tokens
-(
-    username text,
-    token    text not null,
-    creacion text default current_timestamp not null,
-    constraint tokens_pk
-        unique (token, username)
-);
-
-create table users
-(
-    username text not null
-        constraint users_pk
-            primary key,
-    pass     text not null
-);
+	(
+		clientId   int     not null,
+		platformId int     not null,
+		name       text    not null,
+		segment1   boolean not null,
+		segment2   boolean not null,
+		segment3   boolean not null,
+		segment4   boolean not null
+	);
+	
+	create table tokens
+	(
+		username text,
+		token    text not null,
+		creacion text default current_timestamp not null,
+		constraint tokens_pk
+			unique (token, username)
+	);
+	
+	create table users
+	(
+		username text not null
+			constraint users_pk
+				primary key,
+		pass     text not null
+	);
+	
+	
 	
 	insert into users (username, pass)
 	values ('prueba','abc123');
