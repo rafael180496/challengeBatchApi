@@ -1,20 +1,25 @@
 package process
 
 import (
+	"fmt"
+	"os"
 	"time"
 
 	cr "challenge/api/controller"
 	"challenge/api/model"
 	m "challenge/api/model"
+	"challenge/api/service"
 	s "challenge/api/service"
 
+	"github.com/gocarina/gocsv"
 	"github.com/labstack/echo/v4"
+	"github.com/rafael180496/libcore/database"
 	sv "github.com/rafael180496/libcore/server"
 	utl "github.com/rafael180496/libcore/utility"
 )
 
 /*Mainprocess : proceso principal del servicio */
-func Mainprocess() error {
+func Mainprocess(mode, path string) error {
 	api := echo.New()
 	model.SetQuerie()
 	/*Validando Carpetas de configuracion.*/
@@ -43,12 +48,56 @@ func Mainprocess() error {
 		return err
 	}
 	err = iniciarLogs()
-	utl.PrintPc(utl.Green, s.Msjcore.GetString("GE10"))
 	if err != nil {
 		return err
 	}
 
-	err = iniciarServicio(api)
+	switch mode {
+	case service.API:
+		utl.PrintPc(utl.Green, s.Msjcore.GetString("GE10"))
+		err = iniciarServicio(api)
+		if err != nil {
+			return err
+		}
+	case service.BATCH:
+		err = procesarCsv(path)
+		if err != nil {
+			return err
+		}
+	default:
+		return service.Msjcore.GetError("BT01")
+	}
+
+	return nil
+}
+
+func procesarCsv(filePath string) error {
+	var (
+		data database.DataTable
+		err  error
+	)
+	data.SetTable("clients")
+	clientsFile, err := os.OpenFile(filePath, os.O_RDWR|os.O_CREATE, os.ModePerm)
+	if err != nil {
+		service.PrintD("%s", err.Error())
+		return err
+	}
+	defer clientsFile.Close()
+	clients := []*m.Client{}
+	if erraux := gocsv.UnmarshalFile(clientsFile, &clients); erraux != nil {
+		service.PrintD("%s", erraux.Error())
+		err = erraux
+	}
+	for _, client := range clients {
+		fmt.Println(*client)
+	}
+
+	if err != nil {
+		return err
+	}
+
+	cnx := m.SendDB()
+	err = cnx.ExecDatatable(data, database.INSERT, false)
 	if err != nil {
 		return err
 	}

@@ -109,6 +109,7 @@ var (
 			"AC01": "Puerto no valido.",
 			"AC02": "Protocolo no válido {http,https}",
 			"PC02": "[X] Sin conexión a base de datos\n",
+			"BT01": "No existe el comando que ejecuto",
 		},
 	}
 )

@@ -49,6 +49,10 @@ var (
 )
 
 const (
+	/*API : modo api*/
+	API = "api"
+	/*BATCH : modo batch*/
+	BATCH = "batch"
 	/*CONFIGPATH : carpeta de configuraciones del servicio*/
 	CONFIGPATH = "./config"
 	/*APPNAME : nombre del servicio.*/

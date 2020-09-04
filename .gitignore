@@ -3,6 +3,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,code,go,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,code,go,node
 
+/config/
+/.vscode/
+/container/dist
+/test/
+
 ### Code ###
 .vscode/*
 !.vscode/settings.json
