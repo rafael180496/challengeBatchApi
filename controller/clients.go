@@ -35,7 +35,7 @@ var (
 					}
 					err = json.Unmarshal(result, &v)
 					if err != nil {
-						return service.SendMsjPet("PET02", nil, c)
+						return service.SendMsjPet("PET06", nil, c)
 					}
 					return service.SendMsjPet("PET00", v, c)
 				},

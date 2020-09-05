@@ -9,7 +9,9 @@ var (
 		"test":   "/",
 		"login":  "/login",
 		"logout": "/logout",
-		"client": "/clients"}
+		"client": "/clients",
+		"upload": "/files/upload",
+		"dow":    "/files/download"}
 	/*URLSkipper : skipper pesonalizados del controlador.*/
 	URLSkipper = []string{
 		ROUTER["test"],
@@ -22,5 +24,6 @@ var (
 		PruebaController,
 		SesionController,
 		ClientsController,
+		FilesController,
 	}
 )

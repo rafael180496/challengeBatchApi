@@ -28,12 +28,22 @@ var (
 		where u.username=t.username
 		and t.token=trim(:TOKEN)
 		`,
+		"sql04": `
+		select namefile,pathfile
+		from filesupload
+		where namefile =trim(:FILENAME)
+		`,
 		"ins01": `
 		insert into tokens (username, token)
 		values (:USER,:TOKEN)
 		`,
+		"ins02": `
+		insert into filesupload (namefile, pathfile)
+		values (:FILENAME,:PATHFILE)
+		`,
 		"del01": `delete from tokens where username=trim(:USER)`,
 		"del02": `delete from tokens where token=trim(:TOKEN)`,
+		"del03": `delete from filesupload where namefile=trim(:FILENAME)`,
 	}
 )
 
@@ -41,32 +51,42 @@ var (
 func SetQuerie() {
 	s.DbCx.SetBackupScript(`
 	create table clients
-	(
-		clientId   int     not null,
-		platformId int     not null,
-		name       text    not null,
-		segment1   boolean not null,
-		segment2   boolean not null,
-		segment3   boolean not null,
-		segment4   boolean not null
-	);
-	
-	create table tokens
-	(
-		username text,
-		token    text not null,
-		creacion text default current_timestamp not null,
-		constraint tokens_pk
-			unique (token, username)
-	);
-	
-	create table users
-	(
-		username text not null
-			constraint users_pk
-				primary key,
-		pass     text not null
-	);
+(
+    clientId   int     not null,
+    platformId int     not null,
+    name       text    not null,
+    segment1   boolean not null,
+    segment2   boolean not null,
+    segment3   boolean not null,
+    segment4   boolean not null
+);
+
+create table filesupload
+(
+    namefile text not null
+        constraint filesupload_pk
+            primary key,
+    pathfile text not null
+);
+
+create table tokens
+(
+    username text,
+    token    text not null,
+    creacion text default current_timestamp not null,
+    constraint tokens_pk
+        unique (token, username)
+);
+
+create table users
+(
+    username text not null
+        constraint users_pk
+            primary key,
+    pass     text not null
+);
+
+
 	
 	
 	

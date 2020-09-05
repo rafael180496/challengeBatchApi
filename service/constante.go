@@ -44,6 +44,8 @@ var (
 	LOGDEBUG = PATHLOG + "/debug"
 	/*LOGERROR : path donde se guadan los log de errores */
 	LOGERROR = PATHLOG + "/error"
+	/*SRCFILES : directorio donde se guarda todos los  archivos*/
+	SRCFILES = PATHLOG + "/files"
 	/*CONFIGINI : archivo de configuracion del servicio*/
 	CONFIGINI = CONFIGPATH + "/" + APPNAME + ".ini"
 )

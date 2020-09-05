@@ -13,6 +13,10 @@ var ListArch = utl.StArchMa{
 			IndDir: true,
 		},
 		{
+			Path:   SRCFILES,
+			IndDir: true,
+		},
+		{
 			Path:   LOGDEBUG,
 			IndDir: true,
 		},

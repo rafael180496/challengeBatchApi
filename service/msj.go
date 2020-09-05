@@ -50,7 +50,7 @@ func GetMensaje() error {
 			{
 				Cod:  "PET05",
 				Code: 412,
-				Msj:  "Error al convertir json de entrada",
+				Msj:  "Error al convertir parametros de entrada",
 			},
 			{
 				Cod:  "PET06",
@@ -74,6 +74,30 @@ func GetMensaje() error {
 				Cod:  "PET10",
 				Code: 500,
 				Msj:  "Problemas para hacer la consulta",
+			}, {
+				Cod:  "PET11",
+				Code: 500,
+				Msj:  "Error al obtener el archivo",
+			}, {
+				Cod:  "PET12",
+				Code: 500,
+				Msj:  "El archivo no existe o muy pesado",
+			}, {
+				Cod:  "PET13",
+				Code: 500,
+				Msj:  "Error al guardar archivo en la base de datos",
+			}, {
+				Cod:  "PET14",
+				Code: 500,
+				Msj:  "El archivo fue borrado del repositorio de archivos",
+			}, {
+				Cod:  "PET15",
+				Code: 412,
+				Msj:  "El archivo no existe en la base de datos",
+			}, {
+				Cod:  "PET16",
+				Code: 500,
+				Msj:  "Error al obtener archivo ala base de datos",
 			},
 		},
 	}
