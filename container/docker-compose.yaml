@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  coreapi:
+    container_name: challengeapi
+    build: .
+    volumes:
+       - challengeapi:/go/src/challengeapi/config/log
+    ports:
+      - "3001:3001"
+    restart: always
+volumes:
+    challengeapi:
