@@ -61,6 +61,20 @@ func GetMensaje() error {
 				Code: 500,
 				Msj:  "Error en cerrar la sesion",
 			},
+			{
+				Cod:  "PET08",
+				Code: 412,
+				Msj:  "El parametro sort no es valido por favor colocar uno correcto(asc,desc).",
+			},
+			{
+				Cod:  "PET09",
+				Code: 412,
+				Msj:  "La columna para ordenar no es valida.",
+			}, {
+				Cod:  "PET10",
+				Code: 500,
+				Msj:  "Problemas para hacer la consulta",
+			},
 		},
 	}
 	SetMsjPet(datamsj.toMapMsjPet())

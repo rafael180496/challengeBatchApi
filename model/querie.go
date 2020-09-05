@@ -19,7 +19,7 @@ var (
 		"sql02": `
 		select clientId,name,platformId,segment1,segment2,segment3,segment4
 		from clients
-		order by :ORDER
+		order by %s %s
 		limit :CANT offset :INI
 		`,
 		"sql03": `

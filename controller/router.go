@@ -8,7 +8,8 @@ var (
 		/*path de prueba */
 		"test":   "/",
 		"login":  "/login",
-		"logout": "/logout"}
+		"logout": "/logout",
+		"client": "/clients"}
 	/*URLSkipper : skipper pesonalizados del controlador.*/
 	URLSkipper = []string{
 		ROUTER["test"],
@@ -20,5 +21,6 @@ var (
 	RouterIndex = []server.Controller{
 		PruebaController,
 		SesionController,
+		ClientsController,
 	}
 )
