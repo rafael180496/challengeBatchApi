@@ -13,11 +13,6 @@ import (
 	utl "github.com/rafael180496/libcore/utility"
 )
 
-/*StarServer : inicia el servicio.*/
-func StarServer(e *echo.Echo) {
-	e.Logger.Fatal(e.Start(":" + utl.IntToStr(s.Config.Puerto)))
-}
-
 /*serverHeader : Muestra la configuracion del header del proyecto.*/
 func serverHeader(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {

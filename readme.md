@@ -1,8 +1,8 @@
-# **Challenge api**
+# **Example Api api**
 
 ## **Descripcion:**
 
-Proyecto challenge api creada para hacer un programa de autentificacion e guardar clientes ademas de subir y descargar archivos para la empresa **Retargetly**.
+Proyecto ejemplo de api con [ECHO]([https://echo.labstack.com/]) y golang  creada para hacer un programa de autentificacion e guardar clientes ademas de subir y descargar archivos.
 
 ### **Requisitos:**
 

@@ -21,13 +21,3 @@ func SendMsjPet(cod string, data interface{}, e echo.Context) error {
 	msjs := GetMsjPet()
 	return msjs.Send(cod, data, e)
 }
-
-/*Valid : valida la estructa y la configura para el servicio*/
-func (p *ConfigServer) Valid() error {
-
-	if p.Puerto <= 0 {
-		return Msjcore.GetError("AC01")
-	}
-
-	return nil
-}

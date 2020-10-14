@@ -5,20 +5,13 @@ import (
 
 	"github.com/patrickmn/go-cache"
 	"github.com/rafael180496/libcore/database"
+	"github.com/rafael180496/libcore/server"
 	"github.com/rafael180496/libcore/utility"
-)
-
-type (
-	/*ConfigServer : configuraciones del servicio*/
-	ConfigServer struct {
-		Debug  bool `ini:"debug"`
-		Puerto int  `ini:"puerto"`
-	}
 )
 
 var (
 	/*Config : configuraciones del server*/
-	Config = ConfigServer{
+	Config = server.ConfigServer{
 		Debug:  false,
 		Puerto: 8001,
 	}

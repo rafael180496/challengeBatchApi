@@ -7,31 +7,29 @@ import (
 
 /*ListArch : lista de archivo que debe de validar o crear */
 var ListArch = utl.StArchMa{
-	Archs: []utl.StArch{
-		{
-			Path:   CONFIGPATH,
-			IndDir: true,
-		},
-		{
-			Path:   SRCFILES,
-			IndDir: true,
-		},
-		{
-			Path:   LOGDEBUG,
-			IndDir: true,
-		},
-		{
-			Path:   LOGERROR,
-			IndDir: true,
-		},
-		{
-			Path:   LOGPET,
-			IndDir: true,
-		},
-		{
-			Path:   CONFIGINI,
-			IndDir: false,
-		},
+	{
+		Path:   CONFIGPATH,
+		IndDir: true,
+	},
+	{
+		Path:   SRCFILES,
+		IndDir: true,
+	},
+	{
+		Path:   LOGDEBUG,
+		IndDir: true,
+	},
+	{
+		Path:   LOGERROR,
+		IndDir: true,
+	},
+	{
+		Path:   LOGPET,
+		IndDir: true,
+	},
+	{
+		Path:   CONFIGINI,
+		IndDir: false,
 	},
 }
 

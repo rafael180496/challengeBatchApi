@@ -112,7 +112,7 @@ func iniciarServicio(e *echo.Echo) error {
 	if err != nil {
 		return err
 	}
-	cr.StarServer(e)
+	service.Config.StarServer(e)
 	return nil
 }
 
